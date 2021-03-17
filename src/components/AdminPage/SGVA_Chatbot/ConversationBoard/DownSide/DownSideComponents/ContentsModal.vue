@@ -75,3 +75,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+.left{
+  margin-left:0px
+}
+
+</style>
