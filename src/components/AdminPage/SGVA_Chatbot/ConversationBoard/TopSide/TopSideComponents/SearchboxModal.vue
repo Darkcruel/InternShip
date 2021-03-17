@@ -14,15 +14,15 @@
       </li>
     </ul>
     <div class="btn"><a href="#" class="btn_search">조회</a></div>
-    <button type="button" class="layer_close" @click="closeModal" >닫기</button>
+    <button type="button" class="layer_close" @click="closeSearchModal" >닫기</button>
     </div>
 </template>
 
 <script>
 export default {
   methods: {
-    closeModal() {
-      this.$emit("close-modal");
+    closeSearchModal() {
+      this.$emit("close-search-modal");
     },
   },
 };

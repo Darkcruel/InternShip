@@ -15,9 +15,5 @@ export default {
       this.$el.querySelector(".back_shadow").style = "";
       this.$el.querySelector(".layerwrap").style = "";
     },
-    openSearchModal() {
-      // document.documentElement.style.overflow = "hidden";
-      this.$el.querySelector(".detail_view").style = "display: block";
-    },
   },
 };
