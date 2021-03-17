@@ -1,0 +1,62 @@
+$(document).ready(function(){
+	
+	//lnb
+	$('.dep_menu').parent().addClass("active");
+	$('.active a').addClass("act");
+	var atc = $('.lnb > li.active');
+		atc.addClass('hidden');
+		atc.find('.dep_menu').hide();
+	$('.lnb > li > .act').click (function() {
+		var accatc = $(this).parents('.lnb > li:first');
+		if(accatc.hasClass('hidden')) {
+			accatc.removeClass('hidden').addClass('on').find('.dep_menu').slideDown(100);
+		} else {
+			accatc.removeClass('on').addClass('hidden').find('.dep_menu').slideUp(100);
+		}
+		return false;
+	});
+	$('.lnb li.on').removeClass('hidden').find('.dep_menu').show();
+
+	$("#aside").bind("mouseenter focusin", function(){		
+		$(this).addClass("open").removeClass("close");
+	});
+	$("#aside").bind("mouseleave", function(){
+		$(this).removeClass("open").addClass("close");
+	});
+
+	//상세조회
+	$('.btn_detail').click(function(){
+		if (!$(this).hasClass('on'))
+		{
+			$(".detail_view").animate({height: "toggle"},200);
+			$(this).addClass('on');
+		}else{
+			$(".detail_view").animate({height: "toggle"},200);
+			$(this).removeClass('on');
+		}
+		return false;
+	});
+	$('.layer_close').on('click', function(){
+	    $(".detail_view").animate({height: "toggle"},200);
+		$(this).removeClass('on');
+	});
+
+	//layer popup
+	$('.layer_detail').click(function(){
+        $('#detail_info').bPopup({
+		    modalClose: false,
+		    opacity: 0.5
+		});
+    });
+
+    $(document).on('click', '.btn_layer', function (event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var popup = $(this).attr('href');
+        $(popup).bPopup({
+            modalClose: false,
+            opacity: 0.5
+        });
+    });
+});
+ 

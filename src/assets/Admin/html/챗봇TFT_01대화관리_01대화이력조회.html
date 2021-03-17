@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>SOLUGATE</title>
+	<link rel="stylesheet" type="text/css" href="../css/contents.css">
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.bpopup.min.js"></script>
+	<script type="text/javascript" src="../js/calendar.js"></script>
+	<script type="text/javascript" src="../js/common_ui.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+	
+	<!-- header -->
+    <div id="header">
+    	<h1><a href="#"><img src="../images/logo.png" alt="SOLUGATE"></a></h1>
+    	<div class="nav_wrap">
+	    	<h2>대화관리</h2>
+	    	<ul class="nav">
+	    		<li class="on"><a href="#">대화 이력 조회</a></li>
+	    		<li><a href="#">비신뢰 답변 관리</a></li>
+	    	</ul>
+	    </div>
+		<div class="utility">
+			<span class="name">솔루게이트님</span>
+			<a href="#" class="logout"><img src="../images/ico_logout.png" alt="로그아웃"></a>
+		</div>
+	</div>
+    <!-- //header -->
+
+	<!-- container -->
+	<div id="container">
+		
+		<!-- asidemenu --> 
+		<div id="aside" class="close">
+			<ul class="lnb">
+				<li><a href="#">현황</a>
+					<ul class="dep_menu">
+                		<li><a href="#">대시보드</a></li>
+    					<li><a href="#">통계</a></li>
+                	</ul>
+				</li>   
+				<li class="on"><a href="#">대화관리</a>
+					<ul class="dep_menu">
+                		<li class="on"><a href="#">대화 이력 조회</a></li>
+    					<li><a href="#">비신뢰 답변 관리</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">자주 찾는 질문</a>
+					<ul class="dep_menu">
+                		<li><a href="#">FAQ 관리</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">답변 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="챗봇TFT_04답변관리_01stories.html">Stories</a></li>
+						<li><a href="#">Rules</a></li>
+                        <li><a href="#">Responses</a></li>
+						<li><a href="#">Domain</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">NLU 데이터 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="챗봇TFT_05NLU데이터 관리_01intent Mapping.html">Intent Mapping</a></li>
+                        <li><a href="#">Regex & Lookup</a></li>
+                        <li><a href="#">Synonyms</a></li>
+                        <li><a href="#">불용어</a></li>
+                        <li><a href="#">금칙어</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">API 관리</a></li>
+				<li><a href="#">학습 관리</a>					
+				</li>
+                <li><a href="#">사용자 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="#">계정 관리</a></li>
+						<li><a href="#">접속 이력</a></li>
+						<li><a href="#">수행 이력</a></li>
+                	</ul>
+				</li>                
+			</ul>
+            <div>
+            	<a href="#" class="ico_mypage"><img src="../images/ico_mypage.png"></a>
+            </div>
+		</div>
+		<!-- //asidemenu -->
+
+		<!-- content -->
+		<div id="contents">
+			<div class="content_header">
+				<h3>대화 이력 조회</h3>
+				<span>대화이력을 조회합니다.</span>
+                <a href="#" class="right btn_detail_search"><img src="../images/ico_arrow.png" alt="검색조건"></a>
+			</div>
+			<!-- search -->
+			<div class="search_box detail_search">
+				<ul>
+					<li>
+                    	<select style="width:140px;" title="디바이스 선택" class="mr15">
+	                        <option value="">디바이스 선택</option>
+                            <option value="">전체</option>
+                            <option value="">SGDefault</option>
+	                    </select>
+                        <select style="width:140px;" title="Intent 선택" class="mr15">
+	                        <option value="">Intent 선택</option>
+                            <option value="">전체</option>
+                            <option value="">SGDefault</option>
+	                    </select>
+						<input type="text" id="srchFr" style="width:140px;" placeholder="조회기간" title="조회일 시작일자" onClick="openCalendar(document.getElementById('srchFr'));">
+				        <a href="#" class="ico_cal" onClick="openCalendar(document.getElementById('srchFr'));">달력</a>
+				        <em>~</em>
+				        <input type="text" id="srchTo" style="width:140px;" placeholder="조회기간" title="조회일 종료일자" onClick="openCalendar(document.getElementById('srchTo'));">
+				        <a href="#" class="ico_cal" onClick="openCalendar(document.getElementById('srchTo'));">달력</a>
+				        <button type="button" class="btn_date ml13">당일</button>
+				        <button type="button" class="btn_date">1개월</button>
+				        <button type="button" class="btn_date">1년</button>
+					</li>
+
+				</ul>
+	            <span class="right">
+		            <a href="#" class="btn_search">조회</a>
+		            <a href="#" class="btn_detail">상세조회</a>
+		            <div class="detail_view">
+		            	<h3>상세조회</h3>
+						<ul class="detail1">
+							<li>
+								<input type="text" placeholder="아이디" title="아이디">
+							</li>
+							<li>
+								<select title="신뢰도 여부">
+                                	<option value="">신뢰도 여부</option>
+			                        <option value="">신뢰</option>
+                                    <option value="">비신뢰</option>
+			                    </select>
+							</li>
+						</ul>
+						<div class="btn"><a href="#" class="btn_search">조회</a></div>
+						<button type="button" class="layer_close">닫기</button>
+					</div>
+		        </span>
+			</div>			
+			<!-- //search -->
+
+			<div class="btn_right">
+                <a href="#" class="btn_up">업로드</a>        
+                <a href="#" class="btn_down">다운로드</a>
+	        </div>
+
+			<div class="cont_box">
+				<div class="list_header">
+					<h4>대화 이력 조회 내역</h4>
+					<span>각 행을 클릭하여 상세정보를 조회할 수 있습니다.</span>
+					<div class="right">
+						<span class="txt"><em>조회기간</em> : 2021.02.01 ~ 2021.02.28</span>
+						<select style="width:110px;">
+	                        <option value="">100개씩</option>
+                            <option value="">50개씩</option>
+                            <option value="">20개씩</option>
+                            <option value="">10개씩</option>
+	                    </select>
+	                </div>
+				</div>
+				<!-- list -->
+				<table class="tbl_list">
+					<caption>대화이력조회</caption>
+					<colgroup>
+						<col>
+						<col style="width:19%">
+						<col style="width:19%">
+						<col style="width:19%">
+						<col style="width:19%">
+						<col style="width:19%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th scope="col">No</th>
+							<th scope="col">아이디</th>
+							<th scope="col">상담일</th>
+							<th scope="col">상담시간</th>
+							<th scope="col">디바이스</th>
+							<th scope="col">신뢰유무</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="layer_detail link">
+							<td>10</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>9</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>비신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>8</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>7</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>6</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>PC</td>
+							<td>비신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>5</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>4</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>비신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>3</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>PC</td>
+							<td>신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>2</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>신뢰</td>
+						</tr>
+						<tr class="layer_detail link">
+							<td>1</td>
+							<td>SGDefault</td>
+							<td>2021-02-16</td>
+							<td>00:02:28</td>
+							<td>휴대폰</td>
+							<td>신뢰</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- //list -->
+				<!-- paginate -->
+				<div class="paginate">
+	    			<a href="#" class="pre_end">처음</a>
+	    			<a href="#" class="pre">이전</a>
+	    			<a href="#" class="active">1</a>
+	    			<a href="#">2</a>
+	    			<a href="#">3</a>
+	    			<a href="#">4</a>
+	    			<a href="#">5</a>
+	    			<a href="#" class="next">다음</a>
+	    			<a href="#" class="next_end">마지막</a>
+	    		</div>
+				<!-- //paginate -->
+			</div>
+		</div>
+		<!--  //content -->
+        
+		<div id="footer">
+			© 2021 SOLUGATE INC. All Rights Reserved.
+		</div>
+	</div>
+	<!-- //container -->
+    
+    <!-- 대화이력조회 상세보기 팝업 -->
+	<div id="detail_info" class="layerwrap type6">
+		<h3>대화이력조회 상세보기 <!--<span>대화이력을 상세조회합니다.</span>--></h3>
+		<div class="layer_cont">
+			<div class="chatting_wrap left">
+				<ul>
+                	<li class="right">
+						<span class="date">00:03</span>
+						<span class="coment">
+							<p class="cont">안녕</p>
+						</span>						
+					</li>
+					<li class="left">
+						<span class="coment">
+							<p class="cont">도움이 됐나요?</p>
+						</span>						
+						<span class="date">00:02</span>
+					</li>
+					<li class="right">
+						<span class="date">00:03</span>
+						<span class="coment">
+							<p class="cont">남성 상의 보여줘</p>
+						</span>						
+					</li>
+					<li class="left">
+						<span class="coment">
+							<p class="cont">남성 상의 목록입니다</p>
+						</span>						
+						<span class="date">00:02</span>
+					</li>
+					<li class="right">
+						<span class="date">00:03</span>
+						<span class="coment">
+							<p class="cont">주소</p>
+						</span>						
+					</li>
+					<li class="left">
+						<span class="coment">
+							<p class="cont">주소를 입력해 주세요</p>
+						</span>						
+						<span class="date">00:02</span>
+					</li>
+					<li class="right">
+						<span class="date">00:03</span>
+						<span class="coment">
+							<p class="cont">남부순환로</p>
+						</span>						
+					</li>
+					<li class="left">
+				</ul>
+			</div>
+		</div>
+        <div class="chatting_wrap right">
+        	<img src="../images/chat_detail.jpg" style="width:400px;">
+        </div>
+        <div class="btn_center">
+			<a href="#" class="btn_black b-close">닫기</a>
+		</div>
+        <a href="#" class="btn_close b-close">닫기</a>
+	</div>
+	<!-- //대화이력조회 상세보기 팝업 -->
+</div>
+
+</body>
+</html>

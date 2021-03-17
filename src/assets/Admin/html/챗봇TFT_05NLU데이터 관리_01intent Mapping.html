@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>SOLUGATE</title>
+	<link rel="stylesheet" type="text/css" href="../css/contents.css">
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.bpopup.min.js"></script>
+	<script type="text/javascript" src="../js/calendar.js"></script>
+	<script type="text/javascript" src="../js/common_ui.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+	
+	<!-- header -->
+    <div id="header">
+    	<h1><a href="#"><img src="../images/logo.png" alt="SOLUGATE"></a></h1>
+    	<div class="nav_wrap">
+	    	<h2>NLU 데이터 관리</h2>
+	    	<ul class="nav">
+	    		<li class="on"><a href="#">lntent Mapping</a></li>	    		
+                <li><a href="#">Regex & Lookup</a></li>
+                <li><a href="#">Synonyms</a></li>
+	    	</ul>
+	    </div>
+        
+		<div class="utility">
+			<span class="name">솔루게이트님</span>
+			<a href="#" class="logout"><img src="../images/ico_logout.png" alt="로그아웃"></a>
+		</div>
+	</div>
+    <!-- //header -->
+
+	<!-- container -->
+	<div id="container">
+		
+		<!-- asidemenu --> 
+		<div id="aside" class="close">
+			<ul class="lnb">
+				<li><a href="#">현황</a>
+					<ul class="dep_menu">
+                		<li><a href="#">대시보드</a></li>
+    					<li><a href="#">통계</a></li>
+                	</ul>
+				</li>   
+				<li><a href="#">대화관리</a>
+					<ul class="dep_menu">
+                		<li class="on"><a href="챗봇TFT_01대화관리_01대화이력조회.html">대화 이력 조회</a></li>
+    					<li><a href="#">비신뢰 답변 관리</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">자주 찾는 질문</a>
+					<ul class="dep_menu">
+                		<li><a href="#">FAQ 관리</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">답변 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="챗봇TFT_04답변관리_01stories.html">Stories</a></li>
+						<li><a href="#">Rules</a></li>
+                        <li><a href="#">Responses</a></li>
+						<li><a href="#">Forms</a></li>
+                	</ul>
+				</li>
+				<li class="on"><a href="#">NLU 데이터 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="#">Intent Mapping</a></li>
+                        <li><a href="#">Regex & Lookup</a></li>
+                        <li><a href="#">Synonyms</a></li>
+                        <li><a href="#">불용어</a></li>
+                        <li><a href="#">금칙어</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">API 관리</a></li>
+				<li><a href="#">학습 관리</a>					
+				</li>
+                <li><a href="#">사용자 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="#">계정 관리</a></li>
+						<li><a href="#">접속 이력</a></li>
+						<li><a href="#">수행 이력</a></li>
+                	</ul>
+				</li>
+			</ul>
+            <div>
+            	<a href="#" class="ico_mypage"><img src="../images/ico_mypage.png"></a>
+            </div>
+		</div>
+		<!-- //asidemenu -->
+
+		<!-- content -->
+		<div id="contents">
+			<div class="content_header type2">
+				<h3>Intent Mapping</h3>
+				<span>대화문장 인텐트를 관리합니다.</span>
+                <!--<a href="#" class="right btn_detail_search"><img src="../images/ico_arrow.png" alt="검색조건"></a>-->
+			</div>
+			<!-- search
+			<div class="search_box detail_search">
+				<ul>
+					<li>
+						<select style="width:140px;" title="도메인 선택" class="mr15">
+	                        <option value="">도메인 선택</option>
+	                    </select>
+						<input type="text" id="srchFr" style="width:140px;" placeholder="조회기간" title="조회일 시작일자" onClick="openCalendar(document.getElementById('srchFr'));">
+				        <a href="#" class="ico_cal" onClick="openCalendar(document.getElementById('srchFr'));">달력</a>
+				        <em>~</em>
+				        <input type="text" id="srchTo" style="width:140px;" placeholder="조회기간" title="조회일 종료일자" onClick="openCalendar(document.getElementById('srchTo'));">
+				        <a href="#" class="ico_cal" onClick="openCalendar(document.getElementById('srchTo'));">달력</a>
+				        <button type="button" class="btn_date ml13">당일</button>
+				        <button type="button" class="btn_date">1개월</button>
+				        <button type="button" class="btn_date">1년</button>
+					</li>                 
+				</ul>
+	            <span class="right">
+		            <a href="#loading" class="loading_layer btn_search">조회</a>
+		            <a href="#" class="btn_detail">상세조회</a>
+		            <div class="detail_view">
+		            	<h3>상세조회</h3>
+						<ul class="detail1">
+							<li>
+								<select title="담당자">
+			                        <option value="">담당자</option>
+                                    <option value="">홍길동</option>
+                                    <option value="">김삿갓</option>
+			                    </select>
+			                </li>
+							<li>
+								<input type="text" placeholder="고유번호" title="고유번호">
+							</li>
+							<li>
+								<input type="text" placeholder="내선번호" title="내선번호">
+							</li>
+							<li>
+								<input type="text" placeholder="파일명" title="파일명">
+							</li>
+							<li>
+								<select title="신뢰여부">
+			                        <option value="">신뢰여부</option>
+                                    <option value="">신뢰</option>
+                                    <option value="">비신뢰</option>
+			                    </select>
+							</li>
+							<li>
+								<select title="학습대상">
+			                        <option value="">학습대상</option>
+                                    <option value="">Y</option>
+                                    <option value="">N</option>
+			                    </select>
+							</li>
+						</ul>
+						<h4>신뢰도 범위</h4>
+						<ul class="detail1">
+							<li>
+								<input type="text" placeholder="0" style="width:80px;" class="type2"> &nbsp; % &nbsp; ~ &nbsp;
+								<input type="text" placeholder="100" style="width:80px;" class="type2"> &nbsp; %
+			                </li>
+						</ul>
+						<div class="btn"><a href="#" class="btn_search">조회</a></div>
+						<button type="button" class="layer_close">닫기</button>
+					</div>
+		        </span>                
+			</div>
+			//search -->
+			<div class="btn_right">        
+                <a href="#" class="btn_white">초기화</a>
+                <a href="#" class="btn_white">저장하기</a>
+                <a href="#" class="btn_refresh">학습하기</a>
+	        </div>
+			<div class="cont_box">
+				<div class="list_header">
+					<div class="left">
+						<a href="#" class="ico_search">검색</a>
+	                </div>
+					<input type="text" class="type5" id="srchFr" placeholder="Search 78 examples" title="조회">					
+					<div class="right">                    	
+						<a href="#" class="right"><img src="../images/ico_detail.png" alt="상세조건"></a>
+                        <a href="#" class="right"><img src="../images/ico_add.png" alt="추가하기"></a>
+	                </div>
+                    
+				</div>
+				<!-- list -->
+				<table class="tbl_list">
+					<caption>텍스트 조회 리스트</caption>
+					<colgroup>
+						<col style="width:50%">						
+						<col style="width:50%">
+                        <col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th class="type2" scope="col">Sentence</th>
+							<th class="type2" scope="col">Intent</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="type2">보일러가 고장났어</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                        		<option value="">affirm</option>
+	                        		<option value="">bot_challenge</option>
+	                        		<option value="">cancel</option>
+	                        		<option value="">chitchat</option>
+	                        		<option value="">chitchat/hungry</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2">보일러가 이상해</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2">수리는 어떻게 해?</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2">핸드폰 번호 <mark>01095680596</mark> 입니다.</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">tell mobile number</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2"><mark>01095680596</mark> 이다</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">tell mobile number</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2">0<mark>01095680596</mark> 입니다.</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">tell mobile number</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2"><mark>01095680596</mark></td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">tell mobile number</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2">무슨 <mark>이벤트</mark>가 있니?</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2"><mark>이벤트</mark> 좀 볼까</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2"><mark>이벤트</mark> 좀 볼래</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2"><mark>이벤트</mark> 좀 보여줘</td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+						<tr>
+							<td class="type2"><mark>이벤트</mark></td>
+							<td class="type2">
+								<select style="width:400px;" title="도메인 선택" class="mr15">
+	                        		<option value="">FAQ/AS</option>
+	                    		</select>
+	                    		<a href="#" class="ico_del">삭제</a>
+	                    	</td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- //list -->
+				<!-- paginate 
+				<div class="paginate">
+	    			<a href="#" class="pre_end">처음</a>
+	    			<a href="#" class="pre">이전</a>
+	    			<a href="#" class="active">1</a>
+	    			<a href="#">2</a>
+	    			<a href="#">3</a>
+	    			<a href="#">4</a>
+	    			<a href="#">5</a>
+	    			<a href="#" class="next">다음</a>
+	    			<a href="#" class="next_end">마지막</a>
+	    		</div>
+				 //paginate -->
+			</div>
+		</div>
+		<!--  //content -->		
+
+		<div id="footer">
+			© 2021 SOLUGATE INC. All Rights Reserved.
+		</div>
+	</div>
+	<!-- //container -->
+    
+    
+    <!-- 텍스트 상세조회 팝업 -->
+	<div id="detail_info" class="layerwrap">
+		<h3>텍스트 상세조회</h3>
+		<div class="`">
+			<table class="tbl_list">
+				<caption>분석파일 상세정보</caption>
+				<colgroup>					
+					<col style="width:20%">
+                    <col>
+					<col style="width:14%">
+					<col style="width:14%">
+					<col style="width:16%">
+                    <col style="width:14%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">도메인</th>
+                        <th scope="col">키워드</th>
+						<th scope="col">신뢰도</th>
+						<th scope="col">신뢰여부</th>
+						<th scope="col">학습일자</th>
+						<th scope="col" class="last">학습여부</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>SGDefault</td>
+						<td>노트북, 전화</td>
+						<td>75%</td>
+                        <td>비신뢰</td>
+						<td>2020.03.25</td>
+						<td class="last">Y</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="media">
+				<img src="../images/temp_media.png" alt="">
+			</div>
+			<h4>인식내역</h4>
+			<div class="chatting_wrap">
+				<ul>
+					<li class="left">
+						<span class="coment">
+							<p class="cont">안녕하세요.</p>
+						</span>						
+						<span class="date">00:02 &nbsp; 76%</span>
+					</li>
+					<li class="right">
+						<span class="date">00:03 &nbsp; 88%</span>
+						<span class="coment">
+							<p class="cont">네, 안<em class="text_yellow">녕</em>하세요.</p>
+						</span>						
+					</li>
+					<li class="left">
+						<span class="coment">
+							<p class="cont"><em class="text_red">노트북</em> 사용하실 때 충전하실 <em class="text_red">전화</em>와</p>
+						</span>						
+						<span class="date">00:02 &nbsp; 76%</span>
+					</li>
+					<li class="right">
+						<span class="date">00:03 &nbsp; 88%</span>
+						<span class="coment">
+							<p class="cont">네</p>
+						</span>						
+					</li>
+					<li class="left">
+						<span class="coment">
+							<p class="cont">지금 사시는 곳 서울시 금천구 이하 주소 말씀해주세요.</p>
+						</span>						
+						<span class="date">00:02 &nbsp; 76%</span>
+					</li>
+					<li class="right">
+						<span class="date">00:03 &nbsp; 88%</span>
+						<span class="coment">
+							<p class="cont">서울특별시 금천구 가산디지털1로 145, 11층 1104호요.</p>
+						</span>						
+					</li>
+					<li class="left">
+						<span class="coment">
+							<p class="cont">안녕하세요.</p>
+						</span>						
+						<span class="date">00:02 &nbsp; 76%</span>
+					</li>
+					<li class="right">
+						<span class="date">00:03 &nbsp; 88%</span>
+						<span class="coment">
+							<p class="cont">네, 안녕하세요.</p>
+						</span>						
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="btn_center">
+			<a href="#detail_info3" class="btn_layer link btn_blue">학습등록</a>
+			<a href="#" class="btn_black b-close">닫기</a>
+		</div>
+        <a href="#" class="btn_close b-close">닫기</a>
+	</div>
+	<!-- //텍스트 상세조회 팝업 -->
+      
+    <!-- 조회 중 로딩 팝업 -->
+	<div id="loading" class="layerwrap type5">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-text">조회 중</div>
+        </div>
+        <a href="#" class="btn_close b-close">닫기</a>
+	</div>
+	<!-- //조회 중 로딩 팝업 -->
+	
+</div>
+
+</body>
+</html>

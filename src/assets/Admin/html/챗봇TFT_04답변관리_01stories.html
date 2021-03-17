@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>SOLUGATE</title>
+	<link rel="stylesheet" type="text/css" href="../css/contents.css">
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.bpopup.min.js"></script>
+	<script type="text/javascript" src="../js/calendar.js"></script>
+	<script type="text/javascript" src="../js/common_ui.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+	
+	<!-- header -->
+    <div id="header">
+    	<h1><a href="#"><img src="../images/logo.png" alt="SOLUGATE"></a></h1>
+    	<div class="nav_wrap">
+	    	<h2>답변관리</h2>
+	    	<ul class="nav">
+	    		<li class="on"><a href="#">Stories</a></li>
+	    		<li><a href="#">Rules</a></li>
+                <li><a href="#">Responses</a></li>
+                <li><a href="#">Forms</a></li>
+	    	</ul>
+	    </div>
+		<div class="utility">
+			<span class="name">솔루게이트님</span>
+			<a href="#" class="logout"><img src="../images/ico_logout.png" alt="로그아웃"></a>
+		</div>
+	</div>
+    <!-- //header -->
+
+	<!-- container -->
+	<div id="container">
+		
+		<!-- asidemenu --> 
+		<div id="aside" class="close">
+			<ul class="lnb">
+				<li><a href="#">현황</a>
+					<ul class="dep_menu">
+                		<li><a href="#">대시보드</a></li>
+    					<li><a href="#">통계</a></li>
+                	</ul>
+				</li>   
+				<li><a href="#">대화관리</a>
+					<ul class="dep_menu">
+                		<li class="on"><a href="챗봇TFT_01대화관리_01대화이력조회.html">대화 이력 조회</a></li>
+    					<li><a href="#">비신뢰 답변 관리</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">자주 찾는 질문</a>
+					<ul class="dep_menu">
+                		<li><a href="#">FAQ 관리</a></li>
+                	</ul>
+				</li>
+				<li class="on"><a href="#">답변 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="#">Stories</a></li>
+						<li><a href="#">Rules</a></li>
+                        <li><a href="#">Responses</a></li>
+						<li><a href="#">Forms</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">NLU 데이터 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="챗봇TFT_05NLU데이터 관리_01intent Mapping.html">Intent Mapping</a></li>
+                        <li><a href="#">Regex & Lookup</a></li>
+                        <li><a href="#">Synonyms</a></li>
+                        <li><a href="#">불용어</a></li>
+                        <li><a href="#">금칙어</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">API 관리</a></li>
+				<li><a href="#">학습 관리</a>					
+				</li>
+                <li><a href="#">사용자 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="#">계정 관리</a></li>
+						<li><a href="#">접속 이력</a></li>
+						<li><a href="#">수행 이력</a></li>
+                	</ul>
+				</li>
+			</ul>
+            <div>
+            	<a href="#" class="ico_mypage"><img src="../images/ico_mypage.png"></a>
+            </div>
+		</div>
+		<!-- //asidemenu -->
+
+		<!-- content -->
+		<div id="contents">
+			<div class="content_header type2">
+				<h3>Stories</h3>
+				<span>챗봇 스토리를 관리합니다.</span>
+			</div>
+			
+			<div class="btn_right">
+
+	        </div>
+
+			<div class="cont_box2">
+				<div class="box_left">
+                	<div class="list_header">
+                        <h3>Stories</h3>
+                    </div>                	
+                	<!-- in menu --> 
+                    <div>
+                        <ul>
+                            <li class="on"><a href="#">happy path</a> </li>   
+                            <li><a href="#">sad path 1</a></li>
+                            <li><a href="#">utter_happy path</a></li>
+                            <li><a href="#">sad path 2</a></li>
+                            <li><a href="#">test</a></li>
+                            <li><a href="#">address</a></li>
+                            <li><a href="#">slot test</a></li>
+                            <li><a href="#">slot test 2</a></li>
+                        </ul>
+                    </div>
+                    <!-- //in emenu -->
+                </div>
+    
+                <div class="box_right">
+                	<div class="search">
+                        <div>
+                            <a href="#" class="ico_search">검색</a>
+                        </div>
+                        <input type="text" class="type5 btn_edit" id="srchFr" placeholder="Search 8 stories" title="조회">					
+                    </div>
+                    <!-- 자동완성 -->
+                    <div class="edit_layer">
+                        <div class="edit_view">
+                            <dl>
+                                <dd>
+                                    <ul>
+                                        <li>
+                                            <a href="#">sad path <span>keyboard</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>office chair</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>mouse pad</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>baby carrier</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>baby 360</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>infant insert</span></a>
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>    
+                    </div>
+                    <span class="edit_mask"></span>
+                    <!-- //자동완성 -->
+                    <div class="title">
+                        <h4>happy path</h4>
+                        <div class="right">
+                            <a href="#" class="ico_del"><img src="../images/ico_del.png" alt="삭제하기"></a>
+                        </div>
+                    </div>
+                <div class="multi_txt">
+                        <textarea name="" cols="" rows="" style="width:100%; height:440px;">
+version : 2.0
+stories :
+   - story : happy path
+     steps :
+     - intent : mood_great
+     - action : utter_greet
+     - intent : mood_great
+     - action : utter_happy
+                        </textarea>
+                    </div>    
+                </div>
+
+			</div>
+		</div>
+		<!--  //content -->
+        
+		<div id="footer">
+			© 2021 SOLUGATE INC. All Rights Reserved.
+		</div>
+	</div>
+	<!-- //container -->
+
+</div>
+
+</body>
+</html>
