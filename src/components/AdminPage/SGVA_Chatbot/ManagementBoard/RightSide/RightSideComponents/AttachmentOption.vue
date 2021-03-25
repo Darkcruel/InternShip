@@ -5,7 +5,6 @@
     </th>
     <td class="last">
       <ul>
-        {{managementBoardData[templateType]['selected']['attachment']}}
         <li class="file_attach">
           <select
             class=""
@@ -30,9 +29,10 @@
           </span>
 
           <span v-else-if="managementBoardData[templateType]['selected']['attachment']['type']">
+            <div id="selectedFile" @click="clickInputFile"> {{ selectedFile }}</div>
+
             <input ref="file" type="file" class="ml13 form_file" style="display: none" @change="selectFile" />
-            <div id="selectedFile">{{ selectedFile }}</div>
-            <button type="button" class="ml13 btn_white btn_file form_file" @click="clickInputFile">파일 선택</button>
+            <button type="button" class="ml13 btn_white btn_file form_file" @click="clickInputFile">파일 선택</button>            
           </span>
         </li>
       </ul>
@@ -52,9 +52,24 @@ export default {
   data() {
     return {
       selectedFile: "",
+      editing: false,
+      editingInput: "",
     };
   },
   methods: {
+
+    clickEditable(input){
+      this.editingInput = input;
+      this.editing = true;
+    },
+
+    editableBlurAway() {
+      if (this.editingInput == "") {
+        this.editing = false;
+      }
+      this.editingInput = "";
+    },
+
     clickInputFile() {
       this.$refs.file.click();
     },

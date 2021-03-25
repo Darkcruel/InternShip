@@ -48,6 +48,16 @@ const routes = [
     component: () => import("@/views/Chatbot/ConversationHistoryView"),
   },
   {
+    path: "/admin/account",
+    name: "UserAccountView",
+    component: () => import("@/views/Chatbot/UserAccountView"),
+  },
+  {
+    path: "/admin/banword",
+    name: "BanWordView",
+    component: () => import("@/views/Chatbot/BanWordView"),
+  },
+  {
     path: "/login",
     name: "LoginView",
     component: LoginView,

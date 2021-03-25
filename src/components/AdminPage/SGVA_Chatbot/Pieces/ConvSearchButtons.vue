@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SearchboxModal from "@/components/AdminPage/SGVA_Chatbot/ConversationBoard/TopSide/TopSideComponents/SearchboxModal.vue";
+import SearchboxModal from "@/components/AdminPage/SGVA_Chatbot/Pieces/ButtonModals/SearchboxModal.vue";
 import { mapState } from "vuex";
 
 export default {

@@ -4,15 +4,14 @@
       <h4>버튼 옵션</h4>
     </th>
     <td>
-      <!-- {{ managementBoardData[templateType]["selected"]["selectedSlot"] }}
       <br />
       <br />
-      {{ inventory["slotQuestions"] }}  -->
+      <!-- {{ inventory["slotQuestions"] }}  -->
       <ul>
         <div v-for="(buttonItem, bIndex) in buttonProp" :key="bIndex">
           <li>
             <input type="text" style="width:25%" title="내용" v-model="buttonItem['content']['title']" />
-            <select class="ml13" style="min-width:400px; max-width:400px" title="추후 액션" placeholder="hello" v-model="buttonItem['content']['payload']">
+            <select class="ml13" style="min-width:400px; max-width:400px" title="추후 액션" v-model="buttonItem['content']['payload']">
               <template v-for="(value, index) in inventory['intentData']">
                 <option :key="index" v-if="value.title === buttonItem['content']['payload']" selected>
                   {{ value.title }}

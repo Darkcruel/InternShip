@@ -8,48 +8,40 @@
     <div class="cont_box2">
       <ContentLeftSide :templateType="templateType" @select-title="selectTitle" />
       <ContentRightSide :templateType="templateType" />
+      <TriggerInputModal />
     </div>
+
+
   </div>
 </template>
 
 <script>
+import TriggerInputModal from "@/components/AdminPage/SGVA_Chatbot/Pieces/ButtonModals/TriggerInputModal.vue";
 import SubTopNav from "@/components/AdminPage/Common/TopNav/SubTopNav.vue";
 import ContentLeftSide from "@/components/AdminPage/SGVA_Chatbot/ManagementBoard/LeftSide/LeftSide.vue";
 import ContentRightSide from "@/components/AdminPage/SGVA_Chatbot/ScenarioBoard/RightSide/RightSide.vue";
 import RasaButtons from "@/components/AdminPage/SGVA_Chatbot/Pieces/RasaButtons.vue";
 import FAQButtons from "@/components/AdminPage/SGVA_Chatbot/Pieces/FAQButtons.vue";
 // import * as trainApi from "@/apis/admin.js";
+import initModal from "@/mixins/initModal";
 import { mapState } from "vuex";
 
 export default {
   name: "ManagementBoard",
   props: ["title", "subtitle", "templateType"],
+  mixins: [initModal],
   components: {
     SubTopNav,
     ContentLeftSide,
     ContentRightSide,
     RasaButtons, 
     FAQButtons,
+    TriggerInputModal,
   },
   computed: {
     ...mapState(["managementBoardData"]),
   },
   methods: {
-    // train() {
-    //   const data = this.managementBoardData[this.templateType]["items"];
-    //   if (this.templateType === "FAQ") {
-    //     trainApi
-    //       .saveFAQData(data)
-    //       .then(res => console.log(res))
-    //       .catch(err => console.log(err));
-    //   } else {
-    //     data.forEach(d => (d.examples = d.examples.filter(e => e.content)));
-    //     trainApi
-    //       .saveRasaData(data)
-    //       .then(res => console.log(res))
-    //       .catch(err => console.log(err));
-    //   }
-    // },
     closeContext(e) {
       if (
         this.$el.querySelector(".example_text") === null ||
@@ -68,20 +60,6 @@ export default {
     openInitModal() {
       this.$emit("open-init-modal");
     },
-    // 나중에 쓸 것입니다. 지우지 마세요.
-    // trainNLU() {
-    //   this.items.forEach(i => {
-    //     if (!i.sentence || !i.selectedIntent) return true;
-    //     if (!this.json.nlu.find(n => n.intent === i.selectedIntent)) {
-    //       this.json.nlu.push({
-    //         intent: i.selectedIntent,
-    //         examples: [i.sentence],
-    //       });
-    //     } else {
-    //       this.json.nlu[this.json.nlu.findIndex(n => n.intent === i.selectedIntent)].examples.push(i.sentence);
-    //     }
-    //   });
-    // },
   },
 };
 </script>

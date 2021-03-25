@@ -126,63 +126,87 @@ a:hover {
 body::-webkit-scrollbar,
 .chatting_wrap::-webkit-scrollbar,
 #aside::-webkit-scrollbar,
-.faq_write::-webkit-scrollbar {
+.faq_write::-webkit-scrollbar,
+.tab_container::-webkit-scrollbar,
+.multi_txt::-webkit-scrollbar,
+.box_left .list::-webkit-scrollbar {
   width: 5px;
   /* 세로축 스크롤바 길이 */
 }
 body::-webkit-scrollbar-track,
 .chatting_wrap::-webkit-scrollbar-track,
-.faq_write::-webkit-scrollbar-track {
+.faq_write::-webkit-scrollbar-track,
+.tab_container::-webkit-scrollbar-track,
+.multi_txt::-webkit-scrollbar-track,
+.box_left .list::-webkit-scrollbar-track {
   border-radius: 5x;
   background-color: #eaeaea;
   display: none;
 }
 body::-webkit-scrollbar-track-piece,
 .chatting_wrap::-webkit-scrollbar-track-piece,
-.faq_write::-webkit-scrollbar-track-piece {
+.faq_write::-webkit-scrollbar-track-piece,
+.tab_container::-webkit-scrollbar-track-piece,
+.multi_txt::-webkit-scrollbar-track-piece,
+.box_left .list::-webkit-scrollbar-track-piece {
   display: none;
   background-color: #eaeaea;
   display: none;
 }
 body::-webkit-scrollbar-thumb,
-.faq_write::-webkit-scrollbar-thumb {
+.faq_write::-webkit-scrollbar-thumb,
+.tab_container::-webkit-scrollbar-thumb,
+.multi_txt::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #555;
 }
 #aside::-webkit-scrollbar-thumb,
-.faq_write::-webkit-scrollbar-thumb {
+.faq_write::-webkit-scrollbar-thumb,
+.tab_container::-webkit-scrollbar-thumb,
+.multi_txt::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #ffffb2;
 }
-.faq_write::-webkit-scrollbar-thumb {
+.faq_write::-webkit-scrollbar-thumb,
+.tab_container::-webkit-scrollbar-thumb,
+.multi_txt::-webkit-scrollbar-thumb,
+.box_left .list::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #aaa;
 }
-.chatting_wrap::-webkit-scrollbar-thumb {
+.chatting_wrap::-webkit-scrollbar-thumb,
+.tab_container::-webkit-scrollbar-thumb,
+.multi_txt::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: #aaa;
 }
 body::-webkit-scrollbar-button,
-.chatting_wrap::-webkit-scrollbar-button {
+.chatting_wrap::-webkit-scrollbar-button,
+.tab_container::-webkit-scrollbar-button,
+.multi_txt::-webkit-scrollbar-button {
   display: none;
   width: 20px;
   height: 10px;
   background-color: darkblue;
 }
 body::-webkit-scrollbar-button:start,
-.chatting_wrap::-webkit-scrollbar-button:start {
+.chatting_wrap::-webkit-scrollbar-button:start,
+.tab_container::-webkit-scrollbar-button:start,
+.multi_txt::-webkit-scrollbar-button:start {
   display: none;
   background-color: transparent;
   /* Top, Left 방향의 이동버튼 */
 }
 body::-webkit-scrollbar-button:end,
-.chatting_wrap::-webkit-scrollbar-button:end {
+.chatting_wrap::-webkit-scrollbar-button:end,
+.tab_container::-webkit-scrollbar-button:end {
   display: none;
   background-color: transparent;
   /* Bottom, Right 방향의 이동버튼 */
 }
 body::-webkit-scrollbar-corner,
-.chatting_wrap::-webkit-scrollbar-corner {
+.chatting_wrap::-webkit-scrollbar-corner,
+.tab_container::-webkit-scrollbar-corner {
   background-color: violet;
   /* 우측 하단의 코너 부분 */
   direction: none;

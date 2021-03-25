@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>SOLUGATE</title>
+	<link rel="stylesheet" type="text/css" href="../css/contents.css">
+	<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.bpopup.min.js"></script>
+	<script type="text/javascript" src="../js/calendar.js"></script>
+	<script type="text/javascript" src="../js/common_ui.js"></script>
+</head>
+<body>
+
+<div id="wrap">
+	
+	<!-- header -->
+    <div id="header">
+    	<h1><a href="#"><img src="../images/logo.png" alt="SOLUGATE"></a></h1>
+    	<div class="nav_wrap">
+	    	<h2>NLU 데이터 관리</h2>
+	    	<ul class="nav">
+	    		<li><a href="#">lntent Mapping</a></li>	    		
+                <li><a href="#">Regex & Lookup</a></li>
+                <li><a href="#">Synonyms</a></li>
+                <li><a href="#">불용어</a></li>
+                <li class="on"><a href="#">금칙어</a></li>
+	    	</ul>
+	    </div>
+        
+		<div class="utility">
+			<span class="name">솔루게이트님</span>
+			<a href="#" class="logout"><img src="../images/ico_logout.png" alt="로그아웃"></a>
+		</div>
+	</div>
+    <!-- //header -->
+
+	<!-- container -->
+	<div id="container">
+		
+		<!-- asidemenu --> 
+		<div id="aside" class="close">
+			<ul class="lnb">
+				<li><a href="#">현황</a>
+					<ul class="dep_menu">
+                		<li><a href="#">대시보드</a></li>
+    					<li><a href="#">통계</a></li>
+                	</ul>
+				</li>   
+				<li><a href="#">대화관리</a>
+					<ul class="dep_menu">
+                		<li><a href="챗봇TFT_01대화관리_01대화이력조회.html">대화 이력 조회</a></li>
+    					<li><a href="#">비신뢰 답변 관리</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">자주 찾는 질문</a>
+					<ul class="dep_menu">
+                		<li><a href="#">FAQ 관리</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">답변 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="챗봇TFT_04답변관리_01stories.html">Stories</a></li>
+						<li><a href="#">Rules</a></li>
+                        <li><a href="#">Responses</a></li>
+						<li><a href="#">Forms</a></li>
+                	</ul>
+				</li>
+				<li class="on"><a href="#">NLU 데이터 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="#">Intent Mapping</a></li>
+                        <li><a href="#">Regex & Lookup</a></li>
+                        <li><a href="#">Synonyms</a></li>
+                        <li><a href="#">불용어</a></li>
+                        <li class="on"><a href="#">금칙어</a></li>
+                	</ul>
+				</li>
+				<li><a href="#">API 관리</a></li>
+				<li><a href="#">학습 관리</a>					
+				</li>
+                <li><a href="#">사용자 관리</a>
+					<ul class="dep_menu">
+                		<li><a href="#">계정 관리</a></li>
+						<li><a href="#">접속 이력</a></li>
+						<li><a href="#">수행 이력</a></li>
+                	</ul>
+				</li>
+			</ul>
+            <div>
+            	<a href="#" class="ico_mypage"><img src="../images/ico_mypage.png"></a>
+            </div>
+		</div>
+		<!-- //asidemenu -->
+
+		<!-- content -->
+		<div id="contents">
+			<div class="content_header type2">
+				<h3>금칙어</h3>
+				<span>금칙어를 관리합니다.</span>
+			</div>
+			
+			<div class="btn_right">        
+                <a href="#" class="btn_write">신규등록</a>
+	        </div>
+
+			<div class="cont_box2">
+				<div class="box_left">
+                	<div class="list_header">
+                        <h3>금칙어</h3>
+                    </div>                	
+                	<div class="list">
+                        <!-- list -->
+                        <table class="tbl_list">
+                            <caption>금칙어 리스트</caption>
+                            <colgroup>
+                                <col style="width:60%">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">금칙어</th>
+                                    <th scope="col">사용여부</th>
+                            </thead>
+                            <tbody>
+                                <tr class="link">
+                                    <td>샤발라</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>십장생</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>수박씨 발라</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>니 취팔러마</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>쩐다</td>
+                                    <td>사용안함</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>찐따</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>존나</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>대박</td>
+                                    <td>사용안함</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>병신</td>
+                                    <td>사용</td>
+                                </tr>
+                                <tr class="link">
+                                    <td>개이쉑</td>
+                                    <td>사용</td>
+                                </tr>
+                            </tbody>
+                        </table>
+						<!-- //list -->
+                        <!-- paginate 
+                        <div class="paginate">
+                            <a href="#" class="pre_end">처음</a>
+                            <a href="#" class="pre">이전</a>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#" class="next">다음</a>
+                            <a href="#" class="next_end">마지막</a>
+                        </div>
+                         //paginate -->
+                    </div>
+                </div>
+    
+                <div class="box_right">
+                	<div class="search">
+                        <!--<div>
+                        	<select style="width:100px;" title="선택" class="mr15">
+                                <option value="">ID</option>
+                                <option value="">이름</option>
+                            </select>
+                        </div>
+                        -->
+                        <div>
+                            <a href="#" class="ico_search">검색</a>
+                        </div>
+                        <input type="text" class="type5 btn_edit" id="srchFr" placeholder="Search 8 stories" title="조회">
+                    </div>
+                    <!-- 자동완성 -->
+                    <div class="edit_layer">
+                        <div class="edit_view">
+                            <dl>
+                                <dd>
+                                    <ul>
+                                        <li>
+                                            <a href="#">sad path <span>keyboard</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>office chair</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>mouse pad</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>baby carrier</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>baby 360</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">sad path <span>infant insert</span></a>
+                                        </li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>    
+                    </div>
+                    <span class="edit_mask"></span>
+                    <!-- //자동완성 -->
+                    <div class="write">
+                        <!-- list -->
+                        <table class="tbl_list">
+                            <caption>금칙어 등록</caption>
+                            <colgroup>
+                                <col style="width:12%">
+                                <col>
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">용어 코드</th>
+                                    <td class="tleft"><input type="text" style="width:98%" title="ID"></td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">용어 타입</th>
+                                    <td class="tleft"><input type="text" style="width:98%" title="용어 타입"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">용어</th>
+                                    <td class="tleft"><input type="text" style="width:98%" title="용어"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">용어설명</th>
+                                    <td class="tleft"><input type="text" style="width:98%" title="용어설명"></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">사용여부</th>
+                                    <td class="tleft">
+                                        <select style="width:120px;" title="사용여부">
+                                            <option value="">사용</option>
+                                            <option value="">사용안함</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">등록일자</th>
+                                    <td class="tleft">2020-03-16</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">등록자 ID</th>
+                                    <td class="tleft">Admin</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn_right type4">        
+                            <a href="#" class="btn_black">삭제하기</a>
+                            <a href="#" class="btn_save">저장하기</a>
+                        </div>
+						<!-- //list -->                		
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  //content -->
+        
+		<div id="footer">
+			© 2021 SOLUGATE INC. All Rights Reserved.
+		</div>
+	</div>
+	<!-- //container -->
+
+</div>
+
+</body>
+</html>

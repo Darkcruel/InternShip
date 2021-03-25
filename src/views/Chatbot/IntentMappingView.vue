@@ -16,7 +16,7 @@ import SideBar from "@/components/AdminPage/Common/SideBar/SideBar.vue";
 import TopNav from "@/components/AdminPage/Common/TopNav/TopNav.vue";
 import Footer from "@/components/AdminPage/Common/footer/Footer.vue";
 import ManagementBoard from "@/components/AdminPage/SGVA_Chatbot/ManagementBoard/ManagementBoard.vue";
-import InitWarningModal from "@/components/AdminPage/SGVA_Chatbot/ManagementBoard/RightSide/RightSideComponents/InitWarningModal.vue";
+import InitWarningModal from "@/components/AdminPage/SGVA_Chatbot/Pieces/ButtonModals/InitWarningModal.vue";
 import initModal from "@/mixins/initModal";
 
 export default {

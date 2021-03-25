@@ -4,10 +4,10 @@
     <div id="container">
       <div class="back_shadow"></div>
       <SideBar />
-      <ConversationBoard :templateType="templateType" @open-init-modal="openInitModal"/>
+      <ConversationBoard :templateType="templateType" @open-init-modal="openmodal()"/>
       <Footer />
     </div>
-    <ContentsModal @close-modal="closeModal"/>
+    <ContentsModal @close-modal="closemodal()"/>
   </div>
 </template>
 
@@ -32,7 +32,19 @@ export default {
   data() {
     return {
       templateType: "ConversationHistory",
+      
     };
   },
+  methods:{
+    openmodal(){
+      this.$el.querySelector(".layerwrap").style = "left: 63.5px;position: absolute;top: 0px;z-index: 9999;opacity: 1;display: block;";
+    },
+    closemodal(){
+      document.documentElement.removeAttribute("style");
+      this.$el.querySelector(".back_shadow").style = "";
+      this.$el.querySelector(".layerwrap").style = "";
+    }
+  }
+  
 };
 </script>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.sgva.admin.login.mapper.LoginMapper">
+	
+	
+	 <select id="selectLoginCheck" parameterType="com.sgva.admin.login.vo.LoginVo"  resultType="com.sgva.admin.login.vo.LoginVo">
+	 	SELECT 
+	 		id,
+	 		pw
+	 	FROM sgva.tb_test
+	 	WHERE 1 = 1
+	 	AND id = #{id}			
+	</select>	
+</mapper>    

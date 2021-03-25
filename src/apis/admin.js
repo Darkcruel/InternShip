@@ -15,3 +15,5 @@ export async function saveRasaData(data) {
 export async function saveFAQData(data) {
   return http.rasaAdminInstance.post("/bert/setData", data);
 }
+
+

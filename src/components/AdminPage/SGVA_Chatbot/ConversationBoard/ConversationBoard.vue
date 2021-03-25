@@ -42,9 +42,6 @@ export default {
           return;
         this.$el.querySelector(".context__menu").style = "none";
       },
-      handleClickButton(){
-        this.visible = !this.visible
-      },
       openInitModal() {
         this.$emit("open-init-modal");
       }

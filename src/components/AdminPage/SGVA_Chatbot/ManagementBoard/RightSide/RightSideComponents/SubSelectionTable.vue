@@ -48,7 +48,7 @@ export default {
       if (this.slotNameInput == "") return;
 
       // Adding new slot
-      const newSlot = { content: {}, id: this.managementBoardData[this.templateType]["selected"]["examples"].length, slotName: this.slotNameInput };
+      const newSlot = { content: [], id: this.managementBoardData[this.templateType]["selected"]["examples"].length, slotName: this.slotNameInput };
       this.managementBoardData[this.templateType]["selected"]["examples"].push(newSlot);
 
       // Adding new response for the slot

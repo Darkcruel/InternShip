@@ -16,6 +16,10 @@
 
       <button @click="loginClick" type="button">로그인</button>
     </div>
+    <div>
+      <h1>test</h1>
+      <p>{{ test }}</p>
+    </div>
   </div>
 </template>
 
@@ -27,6 +31,7 @@ var protocol = location.protocol;
 var hostName = location.hostname;
 var port = location.port;
 var url = protocol + "//" + hostName + ":" + port;
+var test = "";
 
 console.log("### login test");
 console.log(url);
@@ -37,6 +42,7 @@ export default {
     return {
       id: "",
       pw: "",
+      test
     };
   },
   methods: {
@@ -45,20 +51,23 @@ export default {
       console.log("### pw : " + this.pw);
 
       axios
-        .post(url + "/login/admin", {
+        .post("/admin/login", {
           id: this.id,
           pw: this.pw,
         })
         .then(response => {
           if (response.data.result) {
             // admin page로 이동
+            console.log(response);
             this.$router.push("/admin");
           } else {
-            alert(response.data.message);
+            console.log(response);
+            this.test = response.data;
           }
-        });
+      });
     },
   },
+
 };
 </script>
 

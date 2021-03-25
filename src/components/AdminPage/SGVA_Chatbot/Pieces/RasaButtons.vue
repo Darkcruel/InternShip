@@ -16,6 +16,12 @@ export default {
   computed: {
     ...mapState(["managementBoardData", "inventory"]),
   },
+  data() {
+    return {
+     
+    }
+  }
+  ,
   methods: {
     openInitModal() {
       this.$emit("open-init-modal");

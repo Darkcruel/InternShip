@@ -3,7 +3,7 @@
     <div class="list_header">
       <h3>{{ managementBoardData[templateType]["pageTitle"] }}</h3>
     </div>
-    <div>
+    <div class="left_list">
       <ul>
         <input type="text" style="width:87%;" placeholder="카테고리명을 입력해주세요." title="아이디" v-model="newItemInput" />
         <a @click="addNewItem" class="ico_add">버튼 옵션 추가</a>
@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     addNewItem() {
+      // 왼쪽 탭에서 새로운 Item / Object을 만들때 사용 됨 
       if (this.newItemInput == "") return;
 
       let dataEntry = "";
@@ -47,7 +48,7 @@ export default {
           dataEntry = { answer: "", examples: [], selectedAction: "", title: "" };
         },
         Forms: () => {
-          dataEntry = { examples: [{ slotName: "새 슬롯 #" + this.indexKeeper.newSlotIndex, id: 0, content: {} }], title: "" };
+          dataEntry = { examples: [{ slotName: "새 슬롯 #" + this.indexKeeper.newSlotIndex, id: 0, content: [] }], title: "" };
           this.inventory["slotQuestions"].push({ attachment: {}, buttons: [], examples: [{}], title: "새 슬롯 #" + this.indexKeeper.newSlotIndex });
           this.indexKeeper.newSlotIndex++;
           dataEntry["selectedSlot"] = dataEntry.examples[0];
@@ -55,34 +56,19 @@ export default {
         Responses: () => {
           dataEntry = { attachment: {}, buttons: [], examples: [], title: "" };
         },
+        Scenario: () => {
+          dataEntry = {title: "", steps: [], trigger: {"object": {}, "type": "", "actionType": "", "id": -1} };
+        },
       };
 
       templateTypeObj[this.templateType]();
       dataEntry["title"] = this.newItemInput;
       this.managementBoardData[this.templateType]["items"].push(dataEntry);
       this.newItemInput = "";
-
-      // switch (this.templateType) {
-      //   case "IntentMapping":
-      //     dataEntry = { examples: [], title: "" };
-      //     break;
-      //   case "FAQ":
-      //     dataEntry = { answer: "", examples: [], selectedAction: "", title: "" };
-      //     break;
-      //   case "Forms":
-      //     dataEntry = { examples: [{ slotName: "", id: 0, content: {} }], title: "", response: {} };
-      //     this.inventory["slotQuestions"][""] = { attachment: {}, buttons: [], examples: [{}], title: "" };
-      //     dataEntry["response"] = this.inventory["slotQuestions"][""];
-      //     dataEntry["selectedSlot"] = dataEntry.examples[0];
-      //     break;
-
-      //   case "Responses":
-      //     dataEntry = { attachment: {}, buttons: [], examples: [], title: "" };
-      //     break;
-      // }
     },
 
     sendSelected(item, event) {
+      // 왼쪽에서 아이템을 눌렀을때 그 정보가 모든 곳에 반영되게 하는 함수
       const titles = this.$el.querySelectorAll("ul > li");
       titles.forEach(i => i.classList.remove("on"));
       event.target.parentElement.classList.add("on");

@@ -49,13 +49,13 @@
         </ul>
       </div>
     </div>
-    <div class="chatting_wrap right">
+    <div class="chatting_wrap right" style="width: 24%">
       <img :src= "sample" v-bind:style= "{width:'400px'}">
     </div>
     <div class="btn_center">
       <a href="#" class="btn_black b-close" @click="closeModal">닫기</a>
     </div>
-    <a href="#" class="btn_close b-close" @click="closeModal">닫기</a>
+    <a href="#" class="btn_close b-close" @click="closeModal">닫기</a> 
   </div>  
 </template>
 
@@ -75,11 +75,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-.left{
-  margin-left:0px
-}
-
-</style>

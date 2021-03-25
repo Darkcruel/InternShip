@@ -32,7 +32,6 @@ export default {
     ...mapState(["managementBoardData"]),
   },
   methods: {
-    
     closeContext(e) {
       if (
         this.$el.querySelector(".example_text") === null ||

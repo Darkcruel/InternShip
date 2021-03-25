@@ -53,7 +53,7 @@
             <li><a>Regex & Lookup</a></li>
             <li><a>Synonyms</a></li>
             <li><a>불용어</a></li>
-            <li><a>금칙어</a></li>
+            <li :class="{ on: isSubActive('BanWordView') }"><a @click="route('BanWordView', $event)">금칙어</a></li>
           </ul>
         </div>
       </li>
@@ -63,7 +63,9 @@
         <a @click="slideMenu" href="#">사용자 관리</a>
         <div class="slider">
           <ul class="dep_menu">
-            <li><a>계정 관리</a></li>
+            <li :class="{ on: isSubActive('UserAccountView') }" data-routename="UserAccountView" >
+              <a @click="route('UserAccountView', $event)">계정 관리</a>
+            </li>
             <li><a>접속 이력</a></li>
             <li><a>수행 이력</a></li>
           </ul>
@@ -84,7 +86,8 @@ export default {
     this.getCurrentMenus();
   },
   computed: {
-    ...mapState(["navObj"]),
+    ...mapState(["navObj", "scenarioDataKeeper", "inventory"]),
+    
   },
   data() {
     return {
@@ -96,10 +99,11 @@ export default {
         conversation: ["ConversationHistoryView"],
         faq: ["FAQView"],
         chatbot: ["ScenarioView", "ResponsesView", "FormsView", "IntentMappingView"],
-        nlu: [],
+        nlu: ["BanWordView"],
         api: [],
         learning: [],
-        user: [],
+        user: ["UserAccountView"],
+
       },
     };
   },
@@ -167,6 +171,11 @@ export default {
       this.navObj.sub = [];
       this.navObj.title = event.target.parentElement.parentElement.parentElement.previousSibling.innerText;
       this.navObj.selected = event.target.innerText;
+      if (name === "ScenarioView") {
+        // reconfigure scenarioDataKeeper materials
+        this.scenarioDataKeeper.selectedTab = this.inventory.intentData;
+        this.scenarioDataKeeper.selectedTabType = "";
+      }
       const menus = event.target.parentElement.parentElement.children;
       menus.forEach(m => {
         this.navObj.sub.push({

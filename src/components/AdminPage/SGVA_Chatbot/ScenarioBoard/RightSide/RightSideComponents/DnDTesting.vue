@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- {{ managementBoardData.Scenario.selected.steps }} -->
+    <!-- {{ managementBoardData.Scenario.selected}} -->
     <!-- {{ scenarioDataKeeper }} -->
     <!-- {{ inventory }} -->
 
@@ -73,29 +73,29 @@ export default {
 
   methods: {
     handleDragStartScenario: (evt, item, stateManager) => {
-      stateManager.selectedObjectStart = [item, "rearrange step"];
-      stateManager.selectedObjectIndex = item.id;
+      stateManager.selectedStepObjectStart = [item, "rearrange step"];
+      stateManager.selectedStepObjectIndex = item.id;
       evt.dataTransfer.dropEffect = "move";
       evt.dataTransfer.effectAllowed = "move";
     },
     handleDragEndScenario: (evt, stateManager) => {
-      stateManager.selectedObjectStart = "";
+      stateManager.selectedStepObjectStart = "";
     },
 
     handleDragStartInventory: (evt, item, stateManager) => {
-      stateManager.selectedObjectStart = [item, "new step"];
+      stateManager.selectedStepObjectStart = [item, "new step"];
       evt.dataTransfer.dropEffect = "move";
       evt.dataTransfer.effectAllowed = "move";
     },
     handleDragEndInventory: (evt, stateManager) => {
-      stateManager.selectedObjectStart = "";
+      stateManager.selectedStepObjectStart = "";
     },
     onDrop(evt, stateManager, refList) {
       evt.preventDefault();
-      let newStepObject = stateManager.selectedObjectEnd;
+      let newStepObject = stateManager.selectedStepObjectEnd;
       let stepType = newStepObject[1];
       let step = newStepObject[0];
-      stateManager.selectedObjectEnd = "";
+      stateManager.selectedStepObjectEnd = "";
 
       let targetId = evt.target.id;
       
@@ -114,8 +114,8 @@ export default {
         }
         refList.splice(targetId, 0, newStepObj);
       } else {
-        let temp = refList[stateManager.selectedObjectIndex];
-        let selectedIndex = Number(stateManager.selectedObjectIndex);
+        let temp = refList[stateManager.selectedStepObjectIndex];
+        let selectedIndex = Number(stateManager.selectedStepObjectIndex);
 
         temp.id = targetId;
         let start = 0;
@@ -145,12 +145,12 @@ export default {
 
     onDragEnter(evt, stateManager) {
       evt.preventDefault();
-      stateManager.selectedObjectEnd = stateManager.selectedObjectStart;
+      stateManager.selectedStepObjectEnd = stateManager.selectedStepObjectStart;
     },
 
     onDragLeave(evt, stateManager) {
       evt.preventDefault();
-      stateManager.selectedObjectEnd = "";
+      stateManager.selectedStepObjectEnd = "";
     },
   },
 

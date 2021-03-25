@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.sgva.admin.user.mapper.AccountMapper">
+
+    <resultMap id = "accountLeft" type = "com.sgva.admin.user.vo.AccountVo">
+        <result property = "memberId" column = "member_id" javaType = "java.lang.String" />
+        <result property = "memberPw" column = "member_pw" javaType = "java.lang.String" />
+        <result property = "memberName" column = "member_name" javaType = "java.lang.String" />
+        <result property = "memberNickName" column = "member_nick_name" javaType = "java.lang.String" />
+        <result property = "memberEmail" column = "member_email" javaType = "java.lang.String" />
+        <result property = "memberPhone" column = "member_phone" javaType = "java.lang.String" />
+        <result property = "regDate" column = "regist_date" javaType = "java.lang.String" />
+        <result property = "regId" column = "regist_id" javaType = "java.lang.String" />
+    </resultMap>
+
+    <select id="selectLeftList"  resultMap = "accountLeft">
+	 	SELECT 
+	 		member_id, member_pw, member_name, member_nick_name, member_email, member_phone, regist_date, regist_id
+	 	FROM sgva.sgcom_member			
+	</select>	
+</mapper>    

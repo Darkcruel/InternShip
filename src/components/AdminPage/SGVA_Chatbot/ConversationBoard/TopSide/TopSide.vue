@@ -9,15 +9,6 @@ import { mapState } from "vuex";
 
 export default {
   name: "ContentTopSide",
-  props: ["title", "templateType", "visible"],
-  computed: {
-    ...mapState(["managementBoardData"]),
-  },
-  methods: {
-    handleWrapperClick(){
-      this.$emit('update:visible', false)
-    }
-  }
 }
 </script>
 

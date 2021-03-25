@@ -117,5 +117,38 @@ $(document).ready(function(){
 			$(this).removeClass('on');
 		}
 		return false;
+	});	
+	
+	//tab
+	var $tabsNav    = $('.tabs'),
+		$tabsNavLis = $tabsNav.children('li'),
+		$tabContent = $('.cont');
+	$tabsNav.each(function() {
+		var $this = $(this);
+		$this.next().children('.cont').stop(true,true).hide().first().show();
+		$this.children('li').first().addClass('on').stop(true,true).show();
 	});
+	$tabsNavLis.on('click', function(e) {
+		var $this = $(this);
+		$this.siblings().removeClass('on').end().addClass('on');
+		$this.parent().next().children('.cont').stop(true,true).hide().siblings( $this.find('a').attr('href') ).fadeIn(0);
+		e.preventDefault();
+	});
+
+	$('.boxgrid').hover(function(){
+		$('.cover', this).fadeIn();	
+	}, function() {
+		$('.cover', this).fadeOut();
+	});
+
+	wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       0,
+        callback:     function(box) {
+          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+        }
+      }
+    );
+    wow.init();
 });
